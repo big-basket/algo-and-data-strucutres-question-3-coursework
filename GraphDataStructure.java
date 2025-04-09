@@ -53,4 +53,8 @@ public class GraphDataStructure {
         return adjacencyList.toString();
     }
 
+    public boolean hasEdge(int u, int v) {
+        return adjacencyList.containsKey(u) && adjacencyList.get(u).contains(v);
+    }
+
 }
