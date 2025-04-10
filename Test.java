@@ -1,3 +1,4 @@
+
 public class Test {
     public static void main(String[] args) {
         // Test the RandomGraphGenerator
@@ -13,16 +14,20 @@ public class Test {
         GraphDataStructure graph4 = RandomGraphGenerator.generateRandomGraph(1000, 2000);
         System.out.println("Generated Graph: " + graph4.displayGraph());
 
-        // OptimisedSolution optimisedSolution = new OptimisedSolution();
-        // optimisedSolution.solve(graph);
-
+        // OptimisedSolution.solve(graph1);
+        // OptimisedSolution.solve(graph2);
+        // OptimisedSolution.solve(graph3);
+        // OptimisedSolution.solve(graph4);
     
-        // NiaveSolution niaveSolution = new NiaveSolution();
-        // niaveSolution.solve(graph);
-
+        NiaveSolution.solve(graph1);
+        NiaveSolution.solve(graph2);
+        NiaveSolution.solve(graph3);
+        NiaveSolution.solve(graph4);
     
-        // AISolution aiSolution = new AISolution();
-        // aiSolution.solve(graph);
+        // aiSolution.solve(graph1);
+        // aiSolution.solve(graph2);
+        // aiSolution.solve(graph3);
+        // aiSolution.solve(graph4);
     }
     
 }
