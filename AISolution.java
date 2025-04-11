@@ -1,5 +1,4 @@
 import java.util.HashSet;
-import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -60,7 +59,7 @@ public class AISolution {
         setB.removeAll(setA);
 
         int cutSize = graph.calculateCutSize(setA);
-
+        System.out.println("-----------------AI Solution----------------");
         System.out.println("Max Cut Size: " + cutSize);
         if (setA.size() < 100) {
             System.out.println("Best Set A: " + setA);
