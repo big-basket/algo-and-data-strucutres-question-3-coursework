@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ public class AISolution {
             improved = false;
             for (int vertex : graph.getVertices()) {
                 int cutBefore = graph.calculateCutSize(setA);
-                
+
                 // Move vertex to the other set
                 if (setA.contains(vertex)) {
                     setA.remove(vertex);
@@ -53,21 +54,32 @@ public class AISolution {
         return setA;
     }
 
-    public static void main(String[] args) {
-        int numVertices = 10;
-        int numEdges = 15;
-
-        GraphDataStructure graph = RandomGraphGenerator.generateRandomGraph(numVertices, numEdges);
-        System.out.println("Generated Graph: " + graph.displayGraph());
-
+    public static void runMaxCut(GraphDataStructure graph) {
         Set<Integer> setA = solve(graph);
         Set<Integer> setB = new HashSet<>(graph.getVertices());
         setB.removeAll(setA);
 
         int cutSize = graph.calculateCutSize(setA);
 
-        System.out.println("Set A: " + setA);
-        System.out.println("Set B: " + setB);
-        System.out.println("Cut Size: " + cutSize);
+        System.out.println("Max Cut Size: " + cutSize);
+        if (setA.size() < 100) {
+            System.out.println("Best Set A: " + setA);
+        } else {
+            System.out.println("Best Set A: " + setA.size() + " vertices");
+        }
+        
+        if (setB.size() < 100) {
+            System.out.println("Best Set B: " + setB);
+        } else {
+            System.out.println("Best Set B: " + setB.size() + " vertices");
+        }
     }
-}
+
+    public static void main(String[] args) {
+        int numVertices = 10;
+        int numEdges = 15;
+
+        GraphDataStructure graph = RandomGraphGenerator.generateRandomGraph(numVertices, numEdges);
+        runMaxCut(graph);
+    }
+} 
