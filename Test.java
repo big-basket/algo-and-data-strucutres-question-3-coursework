@@ -11,7 +11,7 @@ public class Test {
         GraphDataStructure graph3 = RandomGraphGenerator.generateRandomGraph(100, 200);
         System.out.println("Generated Graph: " + graph3.displayGraph());
 
-        GraphDataStructure graph4 = RandomGraphGenerator.generateRandomGraph(1000, 2000);
+        GraphDataStructure graph4 = RandomGraphGenerator.generateRandomGraph(10000, 20000);
         System.out.println("Generated Graph: " + graph4.displayGraph());
 
         // OptimisedSolution.solve(graph1);
@@ -24,10 +24,10 @@ public class Test {
         NiaveSolution.solve(graph3);
         NiaveSolution.solve(graph4);
     
-        // aiSolution.solve(graph1);
-        // aiSolution.solve(graph2);
-        // aiSolution.solve(graph3);
-        // aiSolution.solve(graph4);
+        AISolution.solve(graph1);
+        AISolution.solve(graph2);
+        AISolution.solve(graph3);
+        AISolution.solve(graph4);
     }
     
 }

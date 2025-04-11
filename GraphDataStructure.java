@@ -50,7 +50,12 @@ public class GraphDataStructure {
     }
 
     public String displayGraph() {
-        return adjacencyList.toString();
+        if (adjacencyList.size() > 100){
+            return "Graph contains " + adjacencyList.size() + " vertices and " + getEdgeCount() + " edges. Too large to display.";
+        }
+        else{
+            return adjacencyList.toString();
+        }
     }
 
     public boolean hasEdge(int u, int v) {
