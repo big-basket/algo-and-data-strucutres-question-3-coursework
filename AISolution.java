@@ -60,7 +60,7 @@ public class AISolution {
         GraphDataStructure graph = RandomGraphGenerator.generateRandomGraph(numVertices, numEdges);
         System.out.println("Generated Graph: " + graph.displayGraph());
 
-        Set<Integer> setA = solveMaxCut(graph);
+        Set<Integer> setA = solve(graph);
         Set<Integer> setB = new HashSet<>(graph.getVertices());
         setB.removeAll(setA);
 
