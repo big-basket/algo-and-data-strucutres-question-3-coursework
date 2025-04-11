@@ -29,9 +29,19 @@ public class NiaveSolution {
         }
 
         System.out.println("Max Cut Size: " + maxCutSize);
-        System.out.println("Best Set A: " + bestSetA);
+        if (bestSetA.size() < 100) {
+            System.out.println("Best Set A: " + bestSetA);
+        } else {
+            System.out.println("Best Set A: " + bestSetA.size() + " vertices");
+        }
+        
         final Set<Integer> finalBestSetA = new HashSet<>(bestSetA);
-        System.out.println("Best Set B: " + graph.getVertices().stream().filter(v -> !finalBestSetA.contains(v)).toList());
+        List<Integer> bestSetB = graph.getVertices().stream().filter(v -> !finalBestSetA.contains(v)).toList();
+        if (bestSetB.size() < 100) {
+            System.out.println("Best Set B: " + bestSetB);
+        } else {
+            System.out.println("Best Set B: " + bestSetB.size() + " vertices");
+        }
         return bestSetA;
     }
 }
