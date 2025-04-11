@@ -5,7 +5,7 @@ import java.util.Set;
 public class Test {
     public static void main(String[] args) {
         // Test the RandomGraphGenerator
-        GraphDataStructure graph1 = RandomGraphGenerator.generateRandomGraph(30, 60);
+        GraphDataStructure graph1 = RandomGraphGenerator.generateRandomGraph(10, 20);
         System.out.println("Generated Graph: " + graph1.displayGraph());
 
                 Map<Integer, Set<Integer>> adjacencyList = new HashMap<>();
