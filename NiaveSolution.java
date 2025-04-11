@@ -37,11 +37,13 @@ public class NiaveSolution {
         
         final Set<Integer> finalBestSetA = new HashSet<>(bestSetA);
         List<Integer> bestSetB = graph.getVertices().stream().filter(v -> !finalBestSetA.contains(v)).toList();
+
         if (bestSetB.size() < 100) {
             System.out.println("Best Set B: " + bestSetB);
         } else {
             System.out.println("Best Set B: " + bestSetB.size() + " vertices");
         }
+        
         return bestSetA;
     }
 }
