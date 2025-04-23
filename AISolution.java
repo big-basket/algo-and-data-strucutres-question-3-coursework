@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class AISolution {
 
-    public static Set<Integer> solve(GraphDataStructure graph) {
+    public static Integer solve(GraphDataStructure graph) {
         Set<Integer> setA = new HashSet<>();
         Set<Integer> setB = new HashSet<>();
         Random rand = new Random();
@@ -50,7 +50,7 @@ public class AISolution {
             }
         }
 
-        return setA;
+        return graph.calculateCutSize(setA);
     }
 
     public static void runMaxCut(GraphDataStructure graph) {
