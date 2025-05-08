@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "knapsackAI",
+            "request": "launch",
+            "mainClass": "knapsackAI",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_1a9d2059"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AISolution",
+            "request": "launch",
+            "mainClass": "AISolution",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_1a9d2059"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_1a9d2059"
+        },
+        {
+            "type": "java",
+            "name": "knapsack",
+            "request": "launch",
+            "mainClass": "knapsack",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_1a9d2059"
+        }
+    ]
+}
