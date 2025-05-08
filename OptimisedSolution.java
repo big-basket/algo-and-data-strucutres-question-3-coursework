@@ -11,7 +11,6 @@ public class OptimisedSolution {
         Set<Integer> bestSolution = new HashSet<>();
         Random rand = new Random();
 
-        // Initialize with a random split
         for (int vertex : graph.getVertices()) {
             if (rand.nextBoolean()) {
                 currentSolution.add(vertex);
@@ -29,7 +28,6 @@ public class OptimisedSolution {
 
         List<Integer> vertexList = new ArrayList<>(graph.getVertices());
 
-        // Sort once by degree (descending)
         vertexList.sort((v1, v2) -> graph.getNeighbors(v2).size() - graph.getNeighbors(v1).size());
 
         int iteration = 0;
@@ -39,10 +37,8 @@ public class OptimisedSolution {
             iteration++;
             Set<Integer> newSolution = new HashSet<>(currentSolution);
 
-            // Pick one of the top-degree vertices
             int vertexToFlip = vertexList.get(rand.nextInt(Math.min(5, vertexList.size())));
 
-            // Flip vertex
             if (newSolution.contains(vertexToFlip)) {
                 newSolution.remove(vertexToFlip);
             } else {
@@ -58,7 +54,6 @@ public class OptimisedSolution {
 
                 System.out.println("Accepted worse/better move at iteration " + iteration + " | Temp: " + temperature + " | Cut size: " + currentCutSize);
 
-                // Only apply greedy improvement every N accepted moves
                 if (acceptedMoves % GREEDY_IMPROVE_INTERVAL == 0) {
                     long greedyStart = System.currentTimeMillis();
                     currentSolution = greedyImproveIncremental(graph, currentSolution);
@@ -118,7 +113,6 @@ public class OptimisedSolution {
         boolean improved = true;
         int innerIterations = 0;
 
-        // Precompute neighbor maps for fast lookup
         Map<Integer, Set<Integer>> neighborsMap = new HashMap<>();
         for (int v : graph.getVertices()) {
             neighborsMap.put(v, graph.getNeighbors(v));
@@ -132,15 +126,13 @@ public class OptimisedSolution {
                 boolean inA = setA.contains(vertex);
                 Set<Integer> neighbors = neighborsMap.get(vertex);
 
-                // Count number of edges to other set (cut size change)
                 int cutChange = 0;
                 for (int neighbor : neighbors) {
                     boolean neighborInA = setA.contains(neighbor);
-                    if (inA != neighborInA) cutChange--;  // edge will be lost
-                    else cutChange++; // edge will become cut
+                    if (inA != neighborInA) cutChange--;  
+                    else cutChange++; 
                 }
 
-                // Only flip if it improves the cut
                 if (cutChange > 0) {
                     if (inA) {
                         setA.remove(vertex);
