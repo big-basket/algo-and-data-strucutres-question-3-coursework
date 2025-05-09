@@ -22,6 +22,8 @@ public class RandomGraphGenerator {
             }
         }
 
+        String fileName = "random_graph_" + numVertices + "_" + numEdges + ".txt";
+        graph.writeToFile(fileName);
         return graph;
     }
 }
