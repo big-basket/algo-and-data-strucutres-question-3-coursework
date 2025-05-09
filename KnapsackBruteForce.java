@@ -68,7 +68,7 @@ public class KnapsackBruteForce {
 
             } catch (FileNotFoundException e) {
                 System.err.println("Error: File not found - " + file.getName());
-            } 
+            }
         }
 
         System.out.println("Finished processing all Knapsack files.");
