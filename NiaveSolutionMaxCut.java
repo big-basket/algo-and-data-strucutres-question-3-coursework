@@ -60,4 +60,18 @@ public class NiaveSolutionMaxCut {
 
         return bestSetA;
     }
+
+    public static void main(String[] args) {
+        GraphDataStructure graph1 = GraphDataStructure.readFromFile("graph1.txt");
+        GraphDataStructure graph2 = GraphDataStructure.readFromFile("graph2.txt");
+        GraphDataStructure graph3 = GraphDataStructure.readFromFile("graph3.txt");
+        GraphDataStructure graph4 = GraphDataStructure.readFromFile("graph4.txt");
+        GraphDataStructure graph5 = GraphDataStructure.readFromFile("graph5.txt");
+
+        NiaveSolutionMaxCut.solve(graph1);
+        NiaveSolutionMaxCut.solve(graph2);
+        NiaveSolutionMaxCut.solve(graph3);
+        NiaveSolutionMaxCut.solve(graph4);
+        NiaveSolutionMaxCut.solve(graph5);
+    }
 }

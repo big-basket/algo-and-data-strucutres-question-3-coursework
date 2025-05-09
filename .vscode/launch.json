@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AISolutionMaxCut",
+            "request": "launch",
+            "mainClass": "AISolutionMaxCut",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_97fe7e73"
+        },
+        {
+            "type": "java",
+            "name": "NiaveSolutionMaxCut",
+            "request": "launch",
+            "mainClass": "NiaveSolutionMaxCut",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_97fe7e73"
+        },
+        {
+            "type": "java",
+            "name": "OptimisedSolutionMaxCut",
+            "request": "launch",
+            "mainClass": "OptimisedSolutionMaxCut",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_97fe7e73"
+        },
+        {
+            "type": "java",
             "name": "Test",
             "request": "launch",
             "mainClass": "Test",

@@ -75,10 +75,16 @@ public class AISolutionMaxCut {
     }
 
     public static void main(String[] args) {
-        int numVertices = 10;
-        int numEdges = 15;
+        GraphDataStructure graph1 = GraphDataStructure.readFromFile("graph1.txt");
+        GraphDataStructure graph2 = GraphDataStructure.readFromFile("graph2.txt");
+        GraphDataStructure graph3 = GraphDataStructure.readFromFile("graph3.txt");
+        GraphDataStructure graph4 = GraphDataStructure.readFromFile("graph4.txt");
+        GraphDataStructure graph5 = GraphDataStructure.readFromFile("graph5.txt");
 
-        GraphDataStructure graph = RandomGraphGenerator.generateRandomGraph(numVertices, numEdges);
-        runMaxCut(graph);
+        AISolutionMaxCut.runMaxCut(graph1);
+        AISolutionMaxCut.runMaxCut(graph2);
+        AISolutionMaxCut.runMaxCut(graph3);
+        AISolutionMaxCut.runMaxCut(graph4);
+        AISolutionMaxCut.runMaxCut(graph5);
     }
 }

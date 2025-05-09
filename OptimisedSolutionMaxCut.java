@@ -149,4 +149,18 @@ public class OptimisedSolutionMaxCut {
         System.out.println("Greedy improvement iterations: " + innerIterations);
         return setA;
     }
+
+    public static void main(String[] args) {
+        GraphDataStructure graph1 = GraphDataStructure.readFromFile("graph1.txt");
+        GraphDataStructure graph2 = GraphDataStructure.readFromFile("graph2.txt");
+        GraphDataStructure graph3 = GraphDataStructure.readFromFile("graph3.txt");
+        GraphDataStructure graph4 = GraphDataStructure.readFromFile("graph4.txt");
+        GraphDataStructure graph5 = GraphDataStructure.readFromFile("graph5.txt");
+
+        OptimisedSolutionMaxCut.solve(graph1);
+        OptimisedSolutionMaxCut.solve(graph2);
+        OptimisedSolutionMaxCut.solve(graph3);
+        OptimisedSolutionMaxCut.solve(graph4);
+        OptimisedSolutionMaxCut.solve(graph5);
+    }
 }
