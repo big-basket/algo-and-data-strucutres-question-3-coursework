@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_97fe7e73"
+        },
+        {
+            "type": "java",
             "name": "GraphGenerator",
             "request": "launch",
             "mainClass": "GraphGenerator",

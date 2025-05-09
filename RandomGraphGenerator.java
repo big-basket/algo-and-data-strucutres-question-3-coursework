@@ -3,7 +3,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class RandomGraphGenerator {
-    public static GraphDataStructure generateRandomGraph(int numVertices, int numEdges) {
+    public static GraphDataStructure generateRandomGraph(int numVertices, int numEdges, String fileName) {
         Map<Integer, Set<Integer>> adjacencyList = new HashMap<>();
         GraphDataStructure graph = new GraphDataStructure(adjacencyList);
 
@@ -22,7 +22,6 @@ public class RandomGraphGenerator {
             }
         }
 
-        String fileName = "random_graph_" + numVertices + "_" + numEdges + ".txt";
         graph.writeToFile(fileName);
         return graph;
     }

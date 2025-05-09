@@ -1,6 +1,9 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -74,4 +77,32 @@ public class GraphDataStructure {
             System.err.println("Error writing to file: " + e.getMessage());
         }
     }
+
+    public static GraphDataStructure readFromFile(String filePath) {
+    Map<Integer, Set<Integer>> adjacencyList = new HashMap<>();
+    GraphDataStructure graph = new GraphDataStructure(adjacencyList);
+
+    try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.split(" -> ");
+            if (parts.length != 2) continue;
+
+            int vertex = Integer.parseInt(parts[0].trim());
+            String neighborsString = parts[1].replaceAll("[\\[\\]\\s]", "");
+            if (!neighborsString.isEmpty()) {
+                String[] neighbors = neighborsString.split(",");
+                for (String neighbor : neighbors) {
+                    int neighborVertex = Integer.parseInt(neighbor.trim());
+                    graph.addEdge(vertex, neighborVertex);
+                }
+            }
+        }
+        System.out.println("Graph loaded from file: " + filePath);
+    } catch (IOException e) {
+        System.err.println("Error reading from file: " + e.getMessage());
+    }
+
+    return graph;
+}
 }
