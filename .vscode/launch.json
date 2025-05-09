@@ -9,6 +9,20 @@
             "name": "KnapsackOptimised",
             "request": "launch",
             "mainClass": "KnapsackOptimised",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_1a9d2059"
+        },
+        {
+            "type": "java",
+            "name": "KnapsackBruteForce",
+            "request": "launch",
+            "mainClass": "KnapsackBruteForce",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_1a9d2059"
+        },
+        {
+            "type": "java",
+            "name": "KnapsackOptimised",
+            "request": "launch",
+            "mainClass": "KnapsackOptimised",
             "projectName": "algo-and-data-strucutres-question-3-coursework_3170020e"
         },
         {
