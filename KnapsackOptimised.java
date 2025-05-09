@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class KnapsackOptimised {
@@ -9,7 +11,7 @@ public class KnapsackOptimised {
     private static int capacity;
 
     // Constructor
-    public KnapsackOptimised(String filePath){
+    public KnapsackOptimised(String filePath) {
         try {
             // Read the file
             File file = new File(filePath);
@@ -45,30 +47,43 @@ public class KnapsackOptimised {
 
     // Main method
     public static void main(String[] args) {
-        KnapsackOptimised knapsack = new KnapsackOptimised("Knapsack.txt"); // Create an instance to initialize items        
-        
+        File currentDirectory = new File("."); // Current directory
+        File[] files = currentDirectory.listFiles((dir, name) -> name.startsWith("Knapsack") && name.endsWith(".txt"));
 
-        // Print the result array
-        System.out.println(Arrays.deepToString(items));
-
-        int[][] dpTable = knapsackDynamic(items, capacity);
-
-        // The maximum value is stored in the last cell of the DP table
-        int maxValue = dpTable[items.length][capacity];
-
-        // Print the DP table
-        System.out.println("Dynamic Programming Table:");
-        for (int[] row : dpTable) {
-            System.out.println(Arrays.toString(row));
+        if (files == null || files.length == 0) {
+            System.out.println("No files starting with 'Knapsack' found.");
+            return;
         }
 
-        // Print the maximum value
-        System.out.println("Maximum Value: " + maxValue);
-        
+        for (File file : files) {
+            System.out.println("Processing file: " + file.getName());
+            KnapsackOptimised knapsack = new KnapsackOptimised(file.getPath()); // Create an instance to initialize items        
+
+            // Creates the dynamic programming table
+            int[][] dpTable = knapsackDynamic(items, capacity);
+
+            // The maximum value is stored in the last cell of the DP table
+            int maxValue = dpTable[items.length][capacity];
+
+            // Print the DP table
+            System.out.println("Dynamic Programming Table:");
+            for (int[] row : dpTable) {
+                System.out.println(Arrays.toString(row));
+            }
+
+            // Print the maximum value
+            System.out.println("Maximum Value: " + maxValue);
+
+            // Backtrack to find the items included in the knapsack
+            List<int[]> selectedItems = findSelectedItems(dpTable, items, capacity);
+            System.out.println("Items included in the knapsack (Value, Weight):");
+            for (int[] item : selectedItems) {
+                System.out.println(Arrays.toString(item));
+            }
+        }
     }
 
     // Method to create an adjustable array
-
     public static int[][] knapsackDynamic(int[][] items, int capacity) {
         int n = items.length;
         int[][] dp = new int[n + 1][capacity + 1];
@@ -88,5 +103,21 @@ public class KnapsackOptimised {
     
         // Return the DP table
         return dp;
+    }
+
+    // Method to find the items included in the knapsack
+    public static List<int[]> findSelectedItems(int[][] dp, int[][] items, int capacity) {
+        List<int[]> selectedItems = new ArrayList<>();
+        int n = items.length;
+        int w = capacity;
+
+        for (int i = n; i > 0; i--) {
+            if (dp[i][w] != dp[i - 1][w]) {
+                selectedItems.add(items[i - 1]); // Add the item to the list
+                w -= items[i - 1][1]; // Reduce the remaining capacity
+            }
+        }
+
+        return selectedItems;
     }
 }

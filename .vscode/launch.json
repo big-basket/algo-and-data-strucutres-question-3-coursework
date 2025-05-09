@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "KnapsackOptimised",
+            "request": "launch",
+            "mainClass": "KnapsackOptimised",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_3170020e"
+        },
+        {
+            "type": "java",
             "name": "knapsackAI",
             "request": "launch",
             "mainClass": "knapsackAI",
