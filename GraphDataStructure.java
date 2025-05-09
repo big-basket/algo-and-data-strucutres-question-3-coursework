@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
@@ -50,10 +52,9 @@ public class GraphDataStructure {
     }
 
     public String displayGraph() {
-        if (adjacencyList.size() > 100){
+        if (adjacencyList.size() > 100) {
             return "Graph contains " + adjacencyList.size() + " vertices and " + getEdgeCount() + " edges. Too large to display.";
-        }
-        else{
+        } else {
             return adjacencyList.toString();
         }
     }
@@ -62,4 +63,15 @@ public class GraphDataStructure {
         return adjacencyList.containsKey(u) && adjacencyList.get(u).contains(v);
     }
 
+    // New method to write the graph to a file
+    public void writeToFile(String filePath) {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            for (Map.Entry<Integer, Set<Integer>> entry : adjacencyList.entrySet()) {
+                writer.write(entry.getKey() + " -> " + entry.getValue() + System.lineSeparator());
+            }
+            System.out.println("Graph written to file: " + filePath);
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }
 }

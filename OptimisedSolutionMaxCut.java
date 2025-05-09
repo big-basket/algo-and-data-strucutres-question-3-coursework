@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class OptimisedSolution {
+public class OptimisedSolutionMaxCut {
 
     private static final int GREEDY_IMPROVE_INTERVAL = 10; // every N accepted moves
 

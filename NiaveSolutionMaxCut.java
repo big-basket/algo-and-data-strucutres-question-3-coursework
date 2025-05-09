@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class NiaveSolution {
+public class NiaveSolutionMaxCut {
     public static Set<Integer> solve(GraphDataStructure graph) {
         Set<Integer> bestSetA = new HashSet<>();
         int maxCutSize = 0;

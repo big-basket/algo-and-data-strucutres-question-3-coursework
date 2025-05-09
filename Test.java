@@ -11,8 +11,8 @@ public class Test {
 
         for (int i = 0; i < 1000; i++) {
             GraphDataStructure graph = RandomGraphGenerator.generateRandomGraph(1000, 2000);
-            Integer aiCutSize = AISolution.solve(graph);
-            Integer optimisedCutSize = OptimisedSolution.solve(graph);
+            Integer aiCutSize = AISolutionMaxCut.solve(graph);
+            Integer optimisedCutSize = OptimisedSolutionMaxCut.solve(graph);
 
             if (aiCutSize > optimisedCutSize) {
                 optimisedBetterCount++;
