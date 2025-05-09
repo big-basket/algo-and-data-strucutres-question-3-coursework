@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GraphGenerator",
+            "request": "launch",
+            "mainClass": "GraphGenerator",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_3170020e"
+        },
+        {
+            "type": "java",
+            "name": "AISolution",
+            "request": "launch",
+            "mainClass": "AISolution",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_3170020e"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "algo-and-data-strucutres-question-3-coursework_3170020e"
+        },
+        {
+            "type": "java",
             "name": "knapsack",
             "request": "launch",
             "mainClass": "knapsack",

@@ -2,9 +2,9 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class AISolution {
+public class AISolutionMaxCut {
 
-    public static Integer solve(GraphDataStructure graph) {
+    public static Set<Integer> solve(GraphDataStructure graph) {
         Set<Integer> setA = new HashSet<>();
         Set<Integer> setB = new HashSet<>();
         Random rand = new Random();
@@ -50,7 +50,7 @@ public class AISolution {
             }
         }
 
-        return graph.calculateCutSize(setA);
+        return setA; // Return the set of vertices in setA
     }
 
     public static void runMaxCut(GraphDataStructure graph) {
@@ -81,4 +81,4 @@ public class AISolution {
         GraphDataStructure graph = RandomGraphGenerator.generateRandomGraph(numVertices, numEdges);
         runMaxCut(graph);
     }
-} 
+}
