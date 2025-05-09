@@ -2,7 +2,7 @@ import java.util.*;
 
 public class OptimisedSolutionMaxCut {
 
-    private static final int GREEDY_IMPROVE_INTERVAL = 10; // every N accepted moves
+    private static final int GREEDY_IMPROVE_INTERVAL = 10; 
 
     public static Integer solve(GraphDataStructure graph) {
         long startTime = System.currentTimeMillis();
