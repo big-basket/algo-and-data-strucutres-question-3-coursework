@@ -1,10 +1,44 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class knapsack {
     public static void main(String[] args) {
-        // Values and weights of items
-        int[] values = {60, 100, 120};
-        int[] weights = {10, 20, 30};
-        int capacity = 50;
+        File currentDirectory = new File("."); // Current directory
+        File[] files = currentDirectory.listFiles((dir, name) -> name.startsWith("Knapsack") && name.endsWith(".txt"));
 
+        if (files == null || files.length == 0) {
+            System.out.println("No files starting with 'Knapsack' found.");
+            return;
+        }
+
+        for (File file : files) {
+            System.out.println("Processing file: " + file.getName());
+
+            try (Scanner scanner = new Scanner(file)) {
+                // Read values
+                String[] valuesLine = scanner.nextLine().split(" ");
+                int[] values = Arrays.stream(valuesLine).mapToInt(Integer::parseInt).toArray();
+
+                // Read weights
+                String[] weightsLine = scanner.nextLine().split(" ");
+                int[] weights = Arrays.stream(weightsLine).mapToInt(Integer::parseInt).toArray();
+
+                // Read capacity
+                int capacity = Integer.parseInt(scanner.nextLine());
+
+                // Solve the knapsack problem using the naive approach
+                int maxValue = knapsackNaive(weights, values, capacity);
+                System.out.println("Maximum value in the knapsack: " + maxValue);
+            } catch (FileNotFoundException e) {
+                System.err.println("File not found: " + file.getPath());
+            }
+        }
+    }
+
+    // Method to find the maximum value of items that can be carried in the knapsack
+    public static int knapsackNaive(int[] weights, int[] values, int capacity) {
         int itemCount = values.length;
         int maxValue = 0;
 
@@ -21,12 +55,11 @@ public class knapsack {
                 }
             }
 
-            // Only keep the value if it's within the weight limit that's been set
+            // Only keep the value if it's within the weight limit
             if (currentWeight <= capacity && currentValue > maxValue) {
                 maxValue = currentValue;
             }
         }
-        // Output the maximum value that can be carried
-        System.out.println("Max value we can carry = " + maxValue);
+        return maxValue;
     }
 }

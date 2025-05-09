@@ -66,10 +66,10 @@ public class KnapsackOptimised {
             int maxValue = dpTable[items.length][capacity];
 
             // Print the DP table
-            System.out.println("Dynamic Programming Table:");
-            for (int[] row : dpTable) {
-                System.out.println(Arrays.toString(row));
-            }
+            // System.out.println("Dynamic Programming Table:");
+            // for (int[] row : dpTable) {
+            //     System.out.println(Arrays.toString(row));
+            // }
 
             // Print the maximum value
             System.out.println("Maximum Value: " + maxValue);
@@ -94,7 +94,7 @@ public class KnapsackOptimised {
             int weight = items[i - 1][1];
             for (int w = 0; w <= capacity; w++) {
                 if (weight <= w) {
-                    dp[i][w] = Math.max(dp[i - 1][w], dp[i - 1][w - weight] + value);
+                    dp[i][w] = Math.max(dp[i - 1][w], dp[i - 1][w - weight] + value); //Finds the highest value, compares whether the previous item is higher value, or this item.
                 } else {
                     dp[i][w] = dp[i - 1][w];
                 }
